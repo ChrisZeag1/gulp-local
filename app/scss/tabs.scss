@@ -1,0 +1,35 @@
+.tbs-main {
+
+  .Tab {
+    text-transform: uppercase;
+    margin: 8px 0;
+    border: 1px solid black;
+
+    &:nth-child(1), &:nth-child(2){
+      border-right: none;
+    }
+
+    &.__active {
+      background-color: black;
+      color: white;
+    }
+
+  }
+
+  .Tab-container {
+
+  }
+
+}
+
+.Block-tb {
+
+  h6 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+}

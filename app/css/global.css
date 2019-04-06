@@ -1,0 +1,7 @@
+.Global.__tc {
+  text-align: center; }
+
+.Global.__bc {
+  display: flex; }
+  .Global.__bc * {
+    margin: auto; }
