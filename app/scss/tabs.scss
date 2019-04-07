@@ -12,16 +12,15 @@
     border-bottom: 1px solid black;
     margin-left: -1.5rem;
     margin-right: -1.5rem;
-    margin-top: 10px;
     margin-bottom: 0;
-    padding: 10px 0 15px 10px;
+    padding: 10px 0 15px 20px;
     text-transform: uppercase;
     position: relative;
 
     .material-icons {
       position: absolute;
       font-size: 20px;
-      right: 10px;
+      right: 20px;
     }
 
     &.__active {
@@ -76,8 +75,10 @@
     font-size: 1.2rem;
   }
 
-  span.sub-select {
-
+  div.sub-select {
+    width: 50px;
+    border-bottom: 1px solid;
+    margin: auto;
   }
 
 }

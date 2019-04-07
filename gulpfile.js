@@ -14,6 +14,7 @@ gulp.task('sass',  () => {
 });
 
 gulp.task('js',  () => {
+  // Compiling to ES5 to give suport to IE10+
   console.log('runnig js> ');
   return gulp.src('./app/js/**/*.js')
     .pipe(babel({ "presets": ['@babel/preset-env'] }))

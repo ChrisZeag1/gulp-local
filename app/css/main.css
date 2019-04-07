@@ -28,15 +28,14 @@ h5 {
     border-bottom: 1px solid black;
     margin-left: -1.5rem;
     margin-right: -1.5rem;
-    margin-top: 10px;
     margin-bottom: 0;
-    padding: 10px 0 15px 10px;
+    padding: 10px 0 15px 20px;
     text-transform: uppercase;
     position: relative; }
     .tbs-mb.Tab .material-icons {
       position: absolute;
       font-size: 20px;
-      right: 10px; }
+      right: 20px; }
     .tbs-mb.Tab.__active {
       border-bottom: none; }
   @media only screen and (max-width: 768px) {
@@ -67,6 +66,11 @@ h5 {
 .Block-tb p {
   margin-top: 5px;
   font-size: 1.2rem; }
+
+.Block-tb div.sub-select {
+  width: 50px;
+  border-bottom: 1px solid;
+  margin: auto; }
 
 .Tab-container {
   max-height: 500px;
