@@ -5,3 +5,6 @@
   display: flex; }
   .Global.__bc * {
     margin: auto; }
+
+.Global.__hidden {
+  display: none; }

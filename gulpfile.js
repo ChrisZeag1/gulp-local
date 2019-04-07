@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const serve = require('browser-sync').create();
+const babel =  require('gulp-babel');
+const concat =  require('gulp-concat');
 
 sass.compiler = require('node-sass');
  
@@ -10,6 +12,15 @@ gulp.task('sass',  () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./app/css'));
 });
+
+gulp.task('js',  () => {
+  console.log('runnig js> ');
+  return gulp.src('./app/js/**/*.js')
+    .pipe(babel())
+     .pipe(concat('./index.js'))
+    .pipe(gulp.dest('./app'));
+});
+
 
 gulp.task('reload', (done) => {
   console.log('runing realod >> ');
@@ -37,7 +48,12 @@ gulp.task('watch:html', () => {
   gulp.watch('./app/index.html', gulp.series('reload'));
 });
 
-gulp.task('default', gulp.parallel('sass','serve', 'watch:sass', 'watch:html'));
+gulp.task('watch:js', () => {
+  console.log('runnig js watch...');
+  gulp.watch('./app/js/**/*.js', gulp.series('js', 'reload'));
+});
+
+gulp.task('default', gulp.parallel('sass', 'js', 'serve', 'watch:sass', 'watch:html', 'watch:js'));
 
 //TODO:  add task to build for prod:  minification and tree shaking
 
