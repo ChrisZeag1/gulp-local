@@ -1,15 +1,26 @@
+@import 'variables.scss';
+
 .tbs-mb {
   display: none;
+
+  h5 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
   &.Tab {
     border-bottom: 1px solid black;
     margin-left: -1.5rem;
-    padding: 10px 5px;
     margin-right: -1.5rem;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 10px 0 15px 10px;
+    text-transform: uppercase;
     position: relative;
 
     .material-icons {
       position: absolute;
+      font-size: 20px;
       right: 10px;
     }
 
@@ -19,7 +30,7 @@
 
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: $min-tablet-desk) {
     display: block;
   }
 }
@@ -28,7 +39,9 @@
 
   .Tab {
     text-transform: uppercase;
-    margin: 8px 0;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border: 1px solid black;
     cursor: pointer;
     transition: 0.5s;
@@ -44,21 +57,45 @@
 
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: $min-tablet-desk) {
     display: none;
   }
 }
 
 
 .Block-tb {
-
+// You may wonder why an h6 has a bigger font-size than
+// an h5 on the tabs, this is because it is not about how heavy the font is,
+// it is about the importance in the content.
   h6 {
-    font-size: 2.5rem;
+    font-size: 50px;
   }
 
   p {
+    margin-top: 5px;
     font-size: 1.2rem;
+  }
 
+  span.sub-select {
+
+  }
+
+}
+
+.Tab-container {
+  max-height: 500px;
+  opacity: 1;
+  padding: 15px 20px;
+  transition: 0.3s;
+
+  &.Global.__hidden {
+    @media only screen and (max-width: $min-tablet-desk) {
+    overflow: hidden;
+    padding: 0 1em;
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    }
   }
 
 }

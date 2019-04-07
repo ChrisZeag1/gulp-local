@@ -1,11 +1,11 @@
-modulePolifil();
+modulePolyfill();
 
 document.addEventListener("DOMContentLoaded", (event)  => {
-  const tabs = window.module.tabs();
+  const tabs = new window.module.Tabs({target: 'Tab'});
   tabs.init();
 });
 
-function modulePolifil() {
+function modulePolyfill() {
   if(!window.module) {
     window.module = {
     };

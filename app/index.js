@@ -1,35 +1,39 @@
-modulePolifil();
-document.addEventListener("DOMContentLoaded", event => {
-  const tabs = window.module.tabs();
+"use strict";
+
+modulePolyfill();
+document.addEventListener("DOMContentLoaded", function (event) {
+  var tabs = new window.module.Tabs({
+    target: 'Tab'
+  });
   tabs.init();
 });
 
-function modulePolifil() {
+function modulePolyfill() {
   if (!window.module) {
     window.module = {};
   }
 }
-window.module.tabs = function (props) {
-  // TODO: find Object.assign polifil for IE10+.
-  props = Object.assign({
-    target: 'Tab'
-  }, props);
-  const tabs = document.getElementsByClassName(props.target);
+"use strict";
 
-  const init = () => {
-    for (let j = 0; j < tabs.length; j++) {
-      const tab = tabs[j];
+window.module.Tabs = function (props) {
+  // TODO: find Object.assign polifil for IE10+.
+  //props = Object.assign({ target: 'Tab'}, props);
+  var tabs = document.getElementsByClassName(props.target);
+
+  var init = function init() {
+    for (var j = 0; j < tabs.length; j++) {
+      var tab = tabs[j];
       tab.addEventListener('click', function (event) {
         removeClasses(tabs, '__active');
         addClasses(document.getElementsByClassName('Tab-container'), '__hidden');
         this.classList.add('__active');
 
-        if (this.children && this.children.length && /material-icons/g.test(this.children)) {
+        if (this.children && this.children.length && /material-icons/g.test(this.children[0].classList)) {
           editInnerHtml(document.getElementsByClassName('material-icons'), 'add');
           this.children[0].innerHTML = 'remove';
         }
 
-        const content = document.getElementById(this.getAttribute('rel'));
+        var content = document.getElementById(this.getAttribute('rel'));
         content.classList.remove('__hidden');
       });
     }
@@ -38,24 +42,24 @@ window.module.tabs = function (props) {
   };
 
   function removeClasses(domElements, className) {
-    for (let i = 0; i < domElements.length; i++) {
+    for (var i = 0; i < domElements.length; i++) {
       domElements[i].classList.remove(className);
     }
   }
 
   function addClasses(domElements, className) {
-    for (let i = 0; i < domElements.length; i++) {
+    for (var i = 0; i < domElements.length; i++) {
       domElements[i].classList.add(className);
     }
   }
 
   function editInnerHtml(domElements, newHtml) {
-    for (let i = 0; i < domElements.length; i++) {
+    for (var i = 0; i < domElements.length; i++) {
       domElements[i].innerHTML = newHtml;
     }
   }
 
   return {
-    init
+    init: init
   };
 };

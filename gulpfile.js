@@ -16,7 +16,7 @@ gulp.task('sass',  () => {
 gulp.task('js',  () => {
   console.log('runnig js> ');
   return gulp.src('./app/js/**/*.js')
-    .pipe(babel())
+    .pipe(babel({ "presets": ['@babel/preset-env'] }))
      .pipe(concat('./index.js'))
     .pipe(gulp.dest('./app'));
 });

@@ -10,7 +10,9 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "browser-sync": "^2.26.3",
+    "core-js": "^3.0.1",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
