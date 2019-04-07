@@ -24,7 +24,7 @@ window.module.tabs = function (props) {
         addClasses(document.getElementsByClassName('Tab-container'), '__hidden');
         this.classList.add('__active');
 
-        if (this.children && this.children.length) {
+        if (this.children && this.children.length && /material-icons/g.test(this.children)) {
           editInnerHtml(document.getElementsByClassName('material-icons'), 'add');
           this.children[0].innerHTML = 'remove';
         }
